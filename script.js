@@ -23,7 +23,7 @@ window.onload = () => {
 
     setInterval(() => {
         nextBtn.click();
-    }, 6000); // Troca de imagem a cada 3 segundos
+    }, 10000); // Troca de imagem a cada 10 segundos
 
     function updateCounter() {
         const now = new Date();
