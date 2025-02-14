@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução - Clique no botão</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 18px;
+            cursor: pointer;
+            position: absolute;
+            transition: transform 0.1s ease-in-out;
+        }
+
+        .button:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+    <button class="button" id="clickButton">Clique em mim!</button>
+
+    <script>
+        let attempts = 0;
+        let button = document.getElementById("clickButton");
+
+        // Função para mover o botão de forma aleatória
+        function moveButton() {
+            let randomX = Math.random() * (window.innerWidth - button.offsetWidth);
+            let randomY = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.left = randomX + "px";
+            button.style.top = randomY + "px";
+        }
+
+        // Evento para detectar o clique no botão
+        button.addEventListener("click", function () {
+            attempts++;
+            moveButton();
+
+            // Quando o botão for clicado 5 vezes, redireciona para o site
+            if (attempts >= 5) {
+                window.location.href = "intro.html"; // Redireciona para o seu site
+            }
+        });
+
+        // Posicionar o botão inicialmente
+        moveButton();
+    </script>
+</body>
+</html>
